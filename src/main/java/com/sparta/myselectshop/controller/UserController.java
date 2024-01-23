@@ -32,6 +32,8 @@ public class UserController {
     private final UserService userService;
     private final FolderService folderService;
     private final KakaoService kakaoService;
+
+
     @GetMapping("/user/login-page")
     public String loginPage() {
         return "login";
@@ -46,7 +48,7 @@ public class UserController {
     public String signup(@Valid SignupRequestDto requestDto, BindingResult bindingResult) {
         // Validation 예외처리
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
-        if(fieldErrors.size() > 0) {
+        if(!fieldErrors.isEmpty()) {
             for (FieldError fieldError : bindingResult.getFieldErrors()) {
                 log.error(fieldError.getField() + " 필드 : " + fieldError.getDefaultMessage());
             }

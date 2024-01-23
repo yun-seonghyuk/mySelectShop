@@ -132,8 +132,6 @@ public class ProductService {
 
         Page<Product> productList =  productRepository.findAllByUserAndProductFolderList_FolderId(user, folderId,pageable);
 
-        Page<ProductResponseDto> responseDtoList = productList.map(ProductResponseDto::new);
-
-        return responseDtoList;
+        return productList.map(ProductResponseDto::new);
     }
 }
