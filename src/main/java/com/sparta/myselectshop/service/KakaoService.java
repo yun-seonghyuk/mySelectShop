@@ -68,6 +68,8 @@ public class KakaoService {
         body.add("grant_type", "authorization_code");
         body.add("client_id", "1ca37994e22e0e8a414f2e9e68d96a9f");
         body.add("redirect_uri", "http://13.124.7.63/api/user/kakao/callback");
+
+
         body.add("code", code);
 
         RequestEntity<MultiValueMap<String, String>> requestEntity = RequestEntity
